@@ -1,0 +1,26 @@
+
+<div class="row mt-5">
+    <div class="col">
+        <table class="table table-hover table striped">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                    <th>Available</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let vehicle of vehicles">
+                    <th>{{ vehicle.model}}</th>
+                    <th>{{ vehicle.price | currency}}</th>
+                    <th>{{ vehicle.discount}}%</th>
+                    <th>{{ vehicle.available}} Units</th>
+                    <th><button class="btn btn-primary" [disabled]="isDisable(vehicle.available)" [routerLink]="['/new-order',vehicle.id]">Order</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

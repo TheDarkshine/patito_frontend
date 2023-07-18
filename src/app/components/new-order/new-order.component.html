@@ -1,0 +1,71 @@
+<h2>New Order for {{vehicle.model}}</h2>
+<hr>
+
+
+<div class="row text-right">
+  <div class="col">
+    <button class="btn btn-danger"
+            routerLink="/vehicles">
+      <i class="fa fa-arrow-left"></i>
+      Back
+    </button>
+  </div>
+</div>
+<hr>
+
+
+<div class="row animated fadeIn faster">
+  <div class="col">
+
+    <form (ngSubmit)="saveOrder( f )"
+          #f="ngForm">
+
+      <label>Model: {{vehicle.model}}</label>
+      <br>
+      <label>Price: {{vehicle.price | currency}}</label>
+      <br>
+      <label>Discount: {{vehicle.discount}}%</label>
+
+
+      <div class="form-group">
+          <label>Client</label>
+          <input type="text"
+                 class="form-control"
+                 placeholder="Client's Name"
+                 [(ngModel)]="order.client"
+                 name="Client"
+                 required>
+      </div>
+
+      <div class="form-group">
+        <label>Units</label>
+        <input type="text"
+               class="form-control"
+               [(ngModel)]="order.units"
+               name="units"
+               placeholder="Units"
+               (ngModelChange)="calculateTotal($event)">
+    </div>
+
+    <label>Discount Apply : {{discountApply | currency}}</label>
+    <br>
+    <label>Total: {{total | currency}}</label>
+
+
+
+      <hr>
+      <div class="form-group text-center">
+        <button type="submit"
+                class="btn btn-primary w-25">
+          <i class="fa fa-save"></i>
+          Save Order
+        </button>
+      </div>
+
+
+    </form>
+
+
+  </div>
+</div>
+

@@ -1,0 +1,28 @@
+<div class="row mt-5">
+    <div class="col">
+        <table class="table table-hover table striped">
+            <thead>
+                <tr>
+                    <th>Creation Date</th>
+                    <th>Seller</th>
+                    <th>Client</th>
+                    <th>Model</th>
+                    <th>Units</th>
+                    <th>Discount</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders">
+                    <th>{{ order.creationDate | date}}</th>
+                    <th>{{ order.seller}}</th>
+                    <th>{{ order.client}}</th>
+                    <th>{{ order.model}}</th>
+                    <th>{{ order.units}}</th>
+                    <th>{{ order.discount | currency}}</th>
+                    <th>{{ order.total | currency}}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
